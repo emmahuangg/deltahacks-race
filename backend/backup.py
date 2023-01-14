@@ -4,25 +4,26 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 # flask --app index run
 
 
-@app.route("/page/<term>")
-def get_article(term):
-    PARAMS = {
-        "action": "query",
-        "format": "json",
-        "list": "search",
-        "srsearch": term
-    }
+@app.get("/page/<term>")
+def get_article(term: str):
+    # clean the data in front-end, replace " " with "_"
+    # term = term.replace(" ", "_")
 
     response = requests.get(
-        url="https://en.wikipedia.org/w/api.php",
-        params=PARAMS
+        url="https://en.wikipedia.org/wiki/" + term,
     )
+    soup = BeautifulSoup(response.content, 'html.parser')
+    # get the body only
+    content = soup.find(id="mw-content-text")
 
-    data = response.json()
-    return data
+    # content = soup.prettify()
+    content = content.prettify()
+    print(content)
+    return content
 
 
 if __name__ == "__main__":
