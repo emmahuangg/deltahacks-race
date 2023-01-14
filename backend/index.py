@@ -39,7 +39,9 @@ def get_first_paragraph_html(term: str):
 
     # get the first paragraph
     post_first_paragraph = soup.find("div", id="toc")
+
     first_paragraph = post_first_paragraph.find_previous_siblings("p")
+    first_paragraph.reverse()
 
     response = "<div class='first-paragraph'>"
     for i in first_paragraph:
@@ -54,7 +56,6 @@ def get_first_paragraph_html(term: str):
 def get_first_paragraph_text(term: str):
     # clean the data in front-end, replace " " with "_"
     # term = term.replace(" ", "_")
-
     response = requests.get(
         url="https://en.wikipedia.org/wiki/" + term,
     )
@@ -63,6 +64,7 @@ def get_first_paragraph_text(term: str):
     # get the first paragraph
     post_first_paragraph = soup.find("div", id="toc")
     first_paragraph = post_first_paragraph.find_previous_siblings("p")
+    first_paragraph.reverse()
 
     response = ""
     is_addable = True
@@ -78,6 +80,23 @@ def get_first_paragraph_text(term: str):
                 response += char
 
     return response
+
+
+# return the image url of a term
+@app.get("/image/<term>")
+def get_image(term: str):
+    # clean the data in front-end, replace " " with "_"
+    # term = term.replace(" ", "_")
+    response = requests.get(
+        url="https://en.wikipedia.org/wiki/" + term,
+    )
+    soup = BeautifulSoup(response.content, 'html.parser')
+    content = soup.find(id="mw-content-text")
+
+    # get the first image
+    image = content.find("img")
+    return "https:"+image["src"]
+
 
 
 
