@@ -6,3 +6,10 @@
   cursor: pointer;
   color: purple;
 }
+.need-definition[title]:hover {
+  display: none;
+}
+.definition {
+  position: fixed;
+  background-color: yellow;
+}
