@@ -10,8 +10,8 @@ export const Home = () => {
         <div className="p-20 w-screen h-screen bg-bottom bg-[url('../public/assets/images/abstract.jpg')] bg-cover">
         <Navigation />
 
-        <div className="p-10 text-5xl font-extrabold">
-        <span class="p-10 bg-clip-text bg-gradient-to-r from-pink-500 to violet-500">
+        <div className="p-10 text-5xl font-extrabold ">
+        <span class="flex items-center p-10 bg-clip-text bg-gradient-to-r from-pink-500 to violet-500">
           WikiLearn </span> 
 
         <Searchbar />
