@@ -1,8 +1,61 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navigation from "../components/Navigation";
+import { useState, useRef } from "react";
 import { TypeAnimation } from 'react-type-animation';
 
 export const Explore = () => {
+  const [word, setWord] = useState("");
+  const searchBar = useRef();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResult, setSearchResult] = useState(false);
+  const [searchImage, setSearchImage] = useState(false);
+  const [searchVideosArray, setSearchVideosArray] = useState([]);
+
+  useEffect(() => {
+    if (word) {
+      let term = word;
+      setSearchTerm(term);
+      term = term.replaceAll(" ", "_"); // we need to do some data cleaning here
+
+      fetch("/summary/" + term, {
+        method: "GET",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setSearchResult(data.result);
+        });
+
+      fetch("/image/" + term, {
+        method: "GET",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setSearchImage(data.result);
+        });
+
+      fetch("/video/" + term, {
+        method: "GET",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setSearchVideosArray(data.result)
+        });
+    }
+    window.scrollTo(0, 0)
+  }, [word]);
+
   return (
     <>
     <div className="wrapper">
@@ -35,73 +88,87 @@ export const Explore = () => {
         </div>
         </div>
 
-      <div>
-        <div className="rounded-full w-screen px-20 grid grid-cols-5 gap-3 bg-white h-auto" data-aos="slide-left">
+          <div className="h-auto">
+            {searchTerm && <h1 className="font-extrabold text-7xl text-blue mt-0 px-20">{searchTerm}</h1>}
+            <p className="text-lg mt-4 px-20">{searchResult}</p>
+            {searchImage && <img src={searchImage} alt={searchTerm} className="w-auto h-auto mx-auto my-20 rounded-full" />}
+            {searchResult && <div className='bg-orange w-fit ml-0 mb-8 rounded-br-full rounded-tr-full flex justify-end gap-6'><h1 className="px-20 py-8 font-bold text-3xl text-white">Videos to learn more about {searchTerm}</h1></div>}
+            <div className="grid grid-cols-3 gap-0 mx-20">
+              {searchVideosArray.length > 0 &&
+                searchVideosArray.map((videoId, i) => (
+                  <iframe
+                    key={i}
+                    title="Video"
+                    width="400"
+                    height="300"
+                    src={"https://www.youtube.com/embed/" + videoId}
+                    className="mb-8 mt-0 rounded-3xl"
+                  ></iframe>
+                ))}
+            </div>
+          </div>
+
+          <div className="rounded-full w-screen mx-20">
+            <div className="rounded-full w-600 p-10 grid grid-cols-6 gap-5 bg-white h-auto drop-shadow-2xl" data-aos="slide-left">
           <img
             src="https://orientation.engsci.utoronto.ca/wp-content/uploads/2022/07/best-calculus-textbooks.png"
                 alt=""
-                className="rounded-full col-span-1 h-40 w-auto"
+                className="rounded-full col-span-2 h-40 w-96 m-auto object-cover	"
           />
           <div className="col-span-4">
-                <p className="rounded-full bg-blue px-4 py-2 w-min text-white">Mathematics</p>
-            <p class="topic">Calculus</p>
-            <p class="description">
-            Calculus, originally called infinitesimal calculus or "the calculus of infinitesimals", is the mathematical study of continuous change, in the same way that geometry is the study of shape, and algebra is the study of generalizations of arithmetic operations. It has two major branches, differential calculus and integral calculus; the former concerns ...
+                <p className="rounded-full bg-blue px-3 py-1 w-min text-white">Math</p>
+            <p className="font-extrabold text-3xl mt-3">Calculus</p>
+            <p className="text-md mt-2">
+                  Calculus is a type of math that helps us understand how things change. It's like trying to figure out how fast a car is going and how far it has traveled. 
             </p>
-            <a href="/" class="btn">Learn</a>
+                <button onClick={() => setWord('Calculus')} className="rounded-full font-bold col-span-2 px-3 py-2 bg-orange text-white mt-4 hover:bg-red-400 transition-all duration-150 drop-shadow-lg ">Learn more</button>
           </div>
-        </div>
+            </div>
+              <div className="rounded-full w-600 p-10 grid grid-cols-6 gap-5 bg-white h-auto drop-shadow-2xl mt-8" data-aos="slide-left">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/54/Knight_academy_lecture_%28Rosenborg_Palace%29.jpg"
+                  alt=""
+                className="rounded-full col-span-2 h-40 w-96 m-auto object-cover"
+                />
+                <div className="col-span-4">
+                  <p className="rounded-full bg-blue px-3 whitespace-nowrap py-1 w-min text-white">Social science</p>
+                  <p className="font-extrabold text-3xl mt-3">Rhetorics</p>
+                  <p className="text-md mt-2">
+                    Rhetoric is a way of using words to try to convince someone or make them believe something. It's like when a person wants to make you want to buy something or make you agree with them.
+                  </p>
+                <button onClick={() => setWord('Rhetoric')} className="rounded-full font-bold col-span-2 px-3 py-2 bg-orange text-white mt-4 hover:bg-red-400 transition-all duration-150 drop-shadow-lg ">Learn more</button>
+                </div>
+            </div>
+            
+            <div className="rounded-full w-600 p-10 grid grid-cols-6 gap-5 bg-white h-auto drop-shadow-2xl mt-8" data-aos="slide-left">
+              <img
+                src="https://thegivingblock.com/wp-content/uploads/2021/07/Learn-Crypto-The-Giving-Block.png"
+                alt=""
+                className="rounded-full col-span-2 h-40 w-96 m-auto object-cover"
+              />
+              <div className="col-span-4">
+                <p className="rounded-full bg-blue px-3 whitespace-nowrap py-1 w-min text-white">Technologies</p>
+                <p className="font-extrabold text-3xl mt-3">Cryptocurrency</p>
+                <p className="text-md mt-2">
+                  A cryptocurrency is a special kind of money that you can only use on the internet. It's like the money you have in your piggy bank, but it's on a computer. </p>
+                <button onClick={() => setWord('Cryptocurrency')} className="rounded-full font-bold col-span-2 px-3 py-2 bg-orange text-white mt-4 hover:bg-red-400 transition-all duration-150 drop-shadow-lg ">Learn more</button>
+              </div>
+            </div>
 
-        <div class="explore-card" data-aos="slide-right">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/5/54/Knight_academy_lecture_%28Rosenborg_Palace%29.jpg"
-            alt=""
-          />
-          <div class="explore-card__body">
-            <span class="tag">
-              <p>Humanities & Social Science</p>
-            </span>
-            <p class="topic">Rhetorics</p>
-            <p class="description">
-              Rhetoric (/ˈrɛtərɪk/) is the art of persuasion, which along with grammar and logic (or dialectic), is one of the three ancient arts of discourse. Rhetoric aims to study the techniques writers or speakers utilize to inform, persuade, or motivate particular audiences in specific situations. Aristotle defines rhetoric as "the faculty of observing in any given ...
-            </p>
-            <a href="/" class="btn">Learn</a>
-          </div>
-        </div>
-
-        <div class="explore-card" data-aos="slide-left">
-          <img
-            src="https://online.stanford.edu/sites/default/files/inline-images/1600X900-How-does-blockchain-work.jpg"
-            alt=""
-          />
-          <div class="explore-card__body">
-            <span class="tag">
-              <p>Technologies</p>
-            </span>
-            <p class="topic">Blockchain</p>
-            <p class="description">
-            A blockchain is a distributed ledger with growing lists of records (blocks) that are securely linked together via cryptographic hashes. Each block contains a cryptographic hash of the previous block, a timestamp, and transaction data (generally represented as a Merkle tree, where data nodes are represented by leaves). The timestamp proves that the transaction ...
-            </p>
-            <a href="/" class="btn">Learn</a>
-          </div>
-        </div>
-
-        <div class="explore-card" data-aos="slide-right">
-          <img
-            src="https://www.astera.com/wp-content/uploads/2020/01/rest.png"
-            alt=""
-          />
-          <div class="explore-card__body">
-            <span class="tag">
-              <p>Technologies</p>
-            </span>
-            <p class="topic">Representational State Transfer</p>
-            <p class="description">
-            Representational state transfer (REST) is a software architectural style that describes a uniform interface between physically separate components, often across the Internet in a client-server architecture. REST defines four interface constraints: Identification of resources; manipulation of resources; self-descriptive messages and; hypermedia as the engine of application state ...
-            </p>
-            <a href="/" class="btn">Learn</a>
-          </div>
-        </div>
+            <div className="rounded-full w-600 p-10 grid grid-cols-6 gap-5 bg-white h-auto drop-shadow-2xl mt-8" data-aos="slide-left">
+              <img
+                src="https://magecomp.com/blog/wp-content/uploads/2020/12/How-to-get-order-details-using-REST-API-in-magento-2-950x500.jpeg"
+                alt=""
+                className="rounded-full col-span-2 h-40 w-96 m-auto object-cover"
+              />
+              <div className="col-span-4">
+                <p className="rounded-full bg-blue px-3 whitespace-nowrap py-1 w-min text-white">Technologies</p>
+                <p className="font-extrabold text-3xl mt-3">Representational state transfer</p>
+                <p className="text-md mt-2">
+                  REST is a set of rules that makes sure that different computer programs can give and follow the same kind of instructions, even if they are on different computers or the internet. </p>
+                <button onClick={() => setWord('Representational state transfer')} className="rounded-full font-bold col-span-2 px-3 py-2 bg-orange text-white mt-4 hover:bg-red-400 transition-all duration-150 drop-shadow-lg ">Learn more</button>
+              </div>
+            </div>
       </div>
     </div>
     </div>

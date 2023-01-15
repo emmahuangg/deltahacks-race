@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from flask import Flask, jsonify
 from pytube import YouTube, Search
+from simplify import simplify
 
 app = Flask(__name__)
 
@@ -105,6 +106,15 @@ def get_video(term: str):
     for i in range(min(6,len(s))):
         response.append(s[i].video_id)
     return jsonify({"result": response})
+
+
+
+
+# return simplified version of a paragraph
+@app.get("/simplify/<text>")
+def get_simplified(text: str):
+    s = simplify(text)
+    return jsonify({"result": s})
 
 
 
