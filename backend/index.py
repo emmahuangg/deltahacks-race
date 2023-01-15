@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from flask import Flask, jsonify
-from html2text import html2text
+from pytube import YouTube, Search
 
 app = Flask(__name__)
 
@@ -96,6 +96,17 @@ def get_image(term: str):
     image = content.find("img")
 
     return jsonify({"result": "https:"+image["src"]})
+
+
+# return Youtube video of a term
+@app.get("/video/<term>")
+def get_video(term: str):
+    s = Search(term).results
+    response = []
+    for i in range(min(6,len(s))):
+        response.append(s[i].video_id)
+    print(response)
+    return jsonify({"result": response})
 
 
 
