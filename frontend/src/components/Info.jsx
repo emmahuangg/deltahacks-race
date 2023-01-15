@@ -7,6 +7,8 @@ import { BsStack } from 'react-icons/bs'
 import reacticon from '../resources/reacticon.png'
 import flaskicon from '../resources/flaskicon.png'
 import pythonicon from '../resources/pythonicon.png'
+import jsicon from '../resources/jsicon.png'
+import resticon from '../resources/resticon.png'
 import cyanMonkey from '../resources/cyanMonkey.PNG'
 import pinkMonkey from '../resources/pinkMonkey.PNG'
 import orangeMonkey from '../resources/orangeMonkey.PNG'
@@ -39,9 +41,11 @@ export const Info = (props) => {
                     <h1 className='text-5xl font-extrabold text-white w-auto inline-block' data-aos="fade-right">Our Tech Stack</h1>
                 </div>
                 <div className="flex justify-start mb-96">
-                    <img src={reacticon} className='w-44 mx-8 mt-12  ml-20 h-auto' data-aos="fade-left" />
-                    <img src={pythonicon} className='w-28 mx-8 mt-12 ' data-aos="fade-left" />
-                    <img src={flaskicon} className='w-36 mx-8 mt-12 ' data-aos="fade-left" />
+                    <img src={reacticon} className='w-56 mx-8 mt-12 ml-20 h-auto' data-aos="fade-left" title="React JS" />
+                    <img src={pythonicon} className='w-36 mx-8 mt-12 ' data-aos="fade-left" title="Python" />
+                    <img src={flaskicon} className='w-48 mx-8 mt-12 ' data-aos="fade-left" title="Flask" />
+                    <img src={jsicon} className='w-36 mx-8 mt-12 ' data-aos="fade-left" title="JavaScript" />
+                    <img src={resticon} className='w-36 mx-16 mt-12 ' data-aos="fade-left" title="RESTful APIs" />
                 </div>
                 <h1 className='text-right mr-32 font-extrabold text-6xl text-pink' data-aos="slide-down">Team RACE</h1>
                 <h2 className='text-right mr-32 mt-2 font-extrabold text-6xl text-black' data-aos="slide-down">DeltaHacks 9</h2>
