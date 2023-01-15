@@ -1,0 +1,8 @@
+.need-definition {
+  font-weight: bold;
+  color: magenta;
+}
+.need-definition:hover {
+  cursor: pointer;
+  color: purple;
+}
