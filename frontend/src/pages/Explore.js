@@ -3,7 +3,7 @@ import Navigation from "../components/Navigation";
 
 export const Explore = () => {
   return (
-    <div className="p-20 w-screen h-screen bg-bottom bg-[url('../public/assets/images/abstract.jpg')] bg-cover">
+    <div className="p-20 w-screen h-screen bg-bottom bg-[url('../public/abstract.jpg')] bg-cover">
       <Navigation />
       <div className="text-center m-auto mt-5">
         <h1 className="p-0 text-7xl font-extrabold inline-block text-black">

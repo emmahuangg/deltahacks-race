@@ -1,6 +1,8 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
+import { TypingAnim } from './TypingAnim';
 
 function Search() {
+  const [animStyle, setAnimStyle] = useState("visible");
   const searchBar = useRef();
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState(false);
@@ -36,25 +38,32 @@ function Search() {
         setSearchImage(data.result);
       });
 
-      fetch("/video/" + term, {
-        method: "GET",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          setSearchVideosArray(data.result)
-        });
+    fetch("/video/" + term, {
+      method: "GET",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setSearchVideosArray(data.result)
+      });
   };
 
+  const disappear = () => {
+    setAnimStyle("hidden");
+  }
+
   return (
-    <div className = "flex justify-center">
-      <input type="text" ref={searchBar} className="rounded-full h-20 w-screen"/>
-      <button type="button" onClick={getResult}>
-        LEARN
-      </button>
+    <div>
+      <div className="flex justify-center mt-12 ">
+        <TypingAnim />
+        <input type="text" ref={searchBar} className="text-2xl rounded-full h-20 w-screen text-black p-8 focus:outline-0"></input>
+        <button type="button" onClick={getResult} className="text-white h-16 font-bold text-3xl px-8 mt-2 bg-orange rounded-full mx-4 outline outline-orange outline-8 drop-shadow-lg hover:bg-transparent hover:text-white hover:outline-white transition-all duration-300 ">
+          LEARN
+        </button>
+      </div>
       <div>
         {searchTerm && <h1>{searchTerm}</h1>}
         <p>{searchResult}</p>
@@ -66,7 +75,7 @@ function Search() {
                 title="Video"
                 width="420"
                 height="345"
-                src={"https://www.youtube.com/embed/"+videoId}
+                src={"https://www.youtube.com/embed/" + videoId}
               ></iframe>
             ))}
         </div>
