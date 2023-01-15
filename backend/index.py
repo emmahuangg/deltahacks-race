@@ -1,6 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-from flask import Flask
+from flask import Flask, jsonify
 from html2text import html2text
 
 app = Flask(__name__)
@@ -23,7 +23,7 @@ def get_article(term: str):
 
     # content = soup.prettify()
     content = content.prettify()
-    return content
+    return jsonify({"result": content})
 
 
 # only return the most important summary text (html)
@@ -47,8 +47,7 @@ def get_first_paragraph_html(term: str):
     for i in first_paragraph:
         response += str(i)
     response += "</div>"
-    print(response)
-    return response
+    return jsonify({"result": response})
 
 
 # only return the most important summary text (plain text)
@@ -79,7 +78,7 @@ def get_first_paragraph_text(term: str):
             elif is_addable:
                 response += char
 
-    return response
+    return jsonify({"result": response})
 
 
 # return the image url of a term
@@ -95,7 +94,8 @@ def get_image(term: str):
 
     # get the first image
     image = content.find("img")
-    return "https:"+image["src"]
+
+    return jsonify({"result": "https:"+image["src"]})
 
 
 
