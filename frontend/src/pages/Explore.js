@@ -6,44 +6,44 @@ export const Explore = () => {
   return (
     <>
     <div className="wrapper">
-    <div className="w-screen h-auto">
-      <div className="w-screen h-600 bg-bottom bg-[url('../public/abstract.jpg')] bg-cover">
+    <div className="w-screen h-auto pb-20">
+      <div className="h-600 bg-bottom bg-[url('../public/abstract.jpg')] bg-cover">
         <Navigation />
         <span className='flex justify-center mt-16 px-20' data-aos="zoom-in">
           <h1 className="p-0 text-8xl font-extrabold inline-block text-black">Wiki</h1>
           <h1 className="p-0 text-8xl font-extrabold inline-block text-blue">Learn</h1>
         </span>
-        {/* <div className="text-2xl absolute pl-32 rounded-full py-6 w-screen h-20 w-screentext-black focus:outline-0"> */}
-        <div className="text-2xl absolute rounded-full py-6 w-screen h-20 w-screentext-black focus:outline-0 text-center">
+        <div className="text-2x mx-20 flex justify-center rounded-full py-6 h-20 w-screentext-black focus:outline-0">
+
           <TypeAnimation
-            sequence={[
-              'Differential Equations', // Types 'One'
+                sequence={[
+              400,
+              'Learning made easy.', // Types 'One'
               2000, // Waits 1s
-              'Rhetorical Studies', // Deletes 'One' and types 'Two'
+              'Learning made fun.', // Deletes 'One' and types 'Two'
               2000, // Waits 2s
-              'NFTs and Blockchain',
+              'Learning made visual.',
               2000,
-              'Restful APIs',
+              'Learning made better.',
               2000
             ]}
             wrapper="div"
             cursor={true}
             repeat={Infinity}
-            style={{ fontSize: '1.2em', color: "#0EACE3", fontWeight: "bold" }}
+                style={{ fontSize: '2em', color: "#49423E", fontWeight: "bold" }}
           />
         </div>
         </div>
 
-      <div class="explore-card-container mt-0 pt-0">
-        <div class="explore-card" data-aos="slide-left">
+      <div>
+        <div className="rounded-full w-screen px-20 grid grid-cols-5 gap-3 bg-white h-auto" data-aos="slide-left">
           <img
             src="https://orientation.engsci.utoronto.ca/wp-content/uploads/2022/07/best-calculus-textbooks.png"
-            alt=""
+                alt=""
+                className="rounded-full col-span-1 h-40 w-auto"
           />
-          <div class="explore-card__body">
-            <span class="tag">
-              <p>Mathematics</p>
-            </span>
+          <div className="col-span-4">
+                <p className="rounded-full bg-blue px-4 py-2 w-min text-white">Mathematics</p>
             <p class="topic">Calculus</p>
             <p class="description">
             Calculus, originally called infinitesimal calculus or "the calculus of infinitesimals", is the mathematical study of continuous change, in the same way that geometry is the study of shape, and algebra is the study of generalizations of arithmetic operations. It has two major branches, differential calculus and integral calculus; the former concerns ...

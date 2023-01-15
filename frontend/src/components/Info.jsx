@@ -25,7 +25,7 @@ export const Info = (props) => {
         }
     }, [props.searched])
     return (
-        <div className={display + ` h-auto`} data-aos="fade-up">
+        <div className={display + ` h-auto`} >
             <div className='flex justify-center text-5xl font-extrabold text-black px-20'>
                 <h1>Learning with Wiki</h1>
                 <h1 className='text-blue'>Learn</h1>
