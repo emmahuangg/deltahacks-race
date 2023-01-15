@@ -81,6 +81,21 @@ export const Explore = () => {
                 <a href="/" className="rounded-full font-bold col-span-2 px-3 py-2 bg-orange text-white mt-8 hover:bg-red-400 transition-all duration-150 drop-shadow-lg ">Learn more</a>
               </div>
             </div>
+
+            <div className="rounded-full w-600 p-10 grid grid-cols-6 gap-5 bg-white h-auto drop-shadow-2xl mt-8" data-aos="slide-left">
+              <img
+                src="https://magecomp.com/blog/wp-content/uploads/2020/12/How-to-get-order-details-using-REST-API-in-magento-2-950x500.jpeg"
+                alt=""
+                className="rounded-full col-span-2 h-40 w-96 m-auto object-cover"
+              />
+              <div className="col-span-4">
+                <p className="rounded-full bg-blue px-3 whitespace-nowrap py-1 w-min text-white">Technologies</p>
+                <p className="font-extrabold text-3xl mt-3">Representational state transfer</p>
+                <p className="text-md mt-2 mb-6">
+                  REST is a set of rules that makes sure that different computer programs can give and follow the same kind of instructions, even if they are on different computers or the internet. </p>
+                <a href="/" className="rounded-full font-bold col-span-2 px-3 py-2 bg-orange text-white mt-8 hover:bg-red-400 transition-all duration-150 drop-shadow-lg ">Learn more</a>
+              </div>
+            </div>
       </div>
     </div>
     </div>
