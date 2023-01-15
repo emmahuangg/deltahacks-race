@@ -3,7 +3,6 @@ from bs4 import BeautifulSoup
 from flask import Flask, jsonify
 from pytube import YouTube, Search
 import nlpcloud
-from simplify import simplify
 
 app = Flask(__name__)
 

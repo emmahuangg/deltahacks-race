@@ -106,7 +106,7 @@ function Search (props) {
             ))}
         </div>
         {string && <h1 className="py-4 font-extrabold text-4xl text-orange mt-8 px-20 ">What did we learn?</h1>}
-        {string && <p className="bg-orange py-4 rounded-full font-extrabold text-xl text-white px-20 ml-20 mr-20 ">{string}</p>}
+        {string && <p className="bg-orange py-6 rounded-full font-extrabold text-xl text-white px-20 ml-20 mr-20 ">{string}</p>}
         {string && <div className="h-16"/>}
 
       </div>
