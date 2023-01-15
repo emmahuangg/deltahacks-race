@@ -13,6 +13,9 @@ module.exports = {
         'blue': '#0EACE3',
         'yellow': '#FCDC15'
       }, 
+      spacing: {
+        '800': '80rem',
+      }
     },
   },
   plugins: [],
