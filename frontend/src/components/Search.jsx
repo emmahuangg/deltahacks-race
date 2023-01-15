@@ -5,6 +5,7 @@ function Search() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResult, setSearchResult] = useState(false);
   const [searchImage, setSearchImage] = useState(false);
+  const [searchVideosArray, setSearchVideosArray] = useState([]);
 
   const getResult = async () => {
     let term = searchBar.current.value.trim();
@@ -34,6 +35,18 @@ function Search() {
       .then((data) => {
         setSearchImage(data.result);
       });
+
+      fetch("/video/" + term, {
+        method: "GET",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          setSearchVideosArray(data.result)
+        });
   };
 
   return (
@@ -47,6 +60,17 @@ function Search() {
         {searchTerm && <h1>{searchTerm}</h1>}
         <p>{searchResult}</p>
         {searchImage && <img src={searchImage} alt={searchTerm} />}
+        <div>
+          {searchVideosArray.length > 0 &&
+            searchVideosArray.map((videoId, i) => (
+              <iframe
+                title="Video"
+                width="420"
+                height="345"
+                src={"https://www.youtube.com/embed/"+videoId}
+              ></iframe>
+            ))}
+        </div>
       </div>
     </>
   );
