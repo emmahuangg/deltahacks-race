@@ -67,7 +67,7 @@ function Search (props) {
         </button>
       </div>
       <div className="h-auto">
-        {searchTerm && <h1 className="font-extrabold text-7xl text-blue mt-20 px-20">{searchTerm}</h1>}
+        {searchTerm && <h1 className="font-extrabold text-7xl text-blue mt-96 px-20">{searchTerm}</h1>}
         <p className="text-lg mt-4 px-20">{searchResult}</p>
         {searchImage && <img src={searchImage} alt={searchTerm} className="w-auto h-auto mx-auto my-20 rounded-full" />}
         {searchResult && <div className='bg-orange w-fit ml-0 mb-8 rounded-br-full rounded-tr-full flex justify-end gap-6'><h1 className="px-20 py-8 font-bold text-3xl text-white">Videos to learn more about {searchTerm}</h1></div>}
@@ -80,7 +80,7 @@ function Search (props) {
                 width="400"
                 height="300"
                 src={"https://www.youtube.com/embed/" + videoId}
-                className="mb-8 mt-0"
+                className="mb-8 mt-0 rounded-3xl"
               ></iframe>
             ))}
         </div>
