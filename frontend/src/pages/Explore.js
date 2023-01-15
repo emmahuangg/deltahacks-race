@@ -5,7 +5,7 @@ export const Explore = () => {
   return (
     <div className="p-20 w-screen h-screen bg-bottom bg-[url('../public/abstract.jpg')] bg-cover">
       <Navigation />
-      <div className="text-center m-auto mt-5">
+      <div className="text-center m-auto mt-5" data-aos="zoom-in">
         <h1 className="p-0 text-7xl font-extrabold inline-block text-black">
           Wiki
         </h1>
@@ -15,7 +15,7 @@ export const Explore = () => {
       </div>
 
       <div class="explore-card-container">
-        <div class="explore-card">
+        <div class="explore-card" data-aos="slide-left">
           <img
             src="https://orientation.engsci.utoronto.ca/wp-content/uploads/2022/07/best-calculus-textbooks.png"
             alt=""
@@ -32,7 +32,7 @@ export const Explore = () => {
           </div>
         </div>
 
-        <div class="explore-card">
+        <div class="explore-card" data-aos="slide-right">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/5/54/Knight_academy_lecture_%28Rosenborg_Palace%29.jpg"
             alt=""
@@ -49,7 +49,7 @@ export const Explore = () => {
           </div>
         </div>
 
-        <div class="explore-card">
+        <div class="explore-card" data-aos="slide-left">
           <img
             src="https://online.stanford.edu/sites/default/files/inline-images/1600X900-How-does-blockchain-work.jpg"
             alt=""
