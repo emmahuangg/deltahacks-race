@@ -62,14 +62,14 @@ function Search (props) {
       <div className="flex justify-center mt-12 px-20 h-auto">
         <TypingAnim />
         <input type="text" ref={searchBar} className="text-2xl rounded-full h-20 w-screen text-black p-8 focus:outline-0"></input>
-        <button type="button" onClick={getResult} className="text-white h-16 font-bold text-3xl px-8 mt-2 bg-orange rounded-full mx-4 outline outline-orange outline-8 drop-shadow-lg hover:bg-transparent hover:text-white hover:outline-white transition-all duration-300 " data-aos="zoom-out" >
+        <button type="button" onClick={getResult} className="text-white h-16 font-bold text-3xl px-8 mt-2 bg-orange rounded-full mx-4 outline outline-orange outline-8 drop-shadow-lg hover:bg-transparent hover:text-white hover:outline-white transition-all duration-300 ">
           LEARN
         </button>
       </div>
-      <div className="h-auto" >
-        {searchTerm && <h1 className="font-extrabold text-7xl text-blue mt-20 px-20" data-aos="zoom-in">{searchTerm}</h1>}
-        <p className="text-lg mt-4 px-20" data-aos="slide-down">{searchResult}</p>
-        {searchImage && <img src={searchImage} alt={searchTerm} className="w-auto h-auto mx-auto my-20 rounded-full" data-aos="fade-up" />}
+      <div className="h-auto">
+        {searchTerm && <h1 className="font-extrabold text-7xl text-blue mt-96 px-20">{searchTerm}</h1>}
+        <p className="text-lg mt-4 px-20">{searchResult}</p>
+        {searchImage && <img src={searchImage} alt={searchTerm} className="w-auto h-auto mx-auto my-20 rounded-full" />}
         {searchResult && <div className='bg-orange w-fit ml-0 mb-8 rounded-br-full rounded-tr-full flex justify-end gap-6'><h1 className="px-20 py-8 font-bold text-3xl text-white">Videos to learn more about {searchTerm}</h1></div>}
         <div className="grid grid-cols-3 gap-0 mx-20">
           {searchVideosArray.length > 0 &&
@@ -81,7 +81,6 @@ function Search (props) {
                 height="300"
                 src={"https://www.youtube.com/embed/" + videoId}
                 className="mb-8 mt-0 rounded-3xl"
-                data-aos="fade-down"
               ></iframe>
             ))}
         </div>
