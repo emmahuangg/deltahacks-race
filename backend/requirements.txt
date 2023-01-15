@@ -1,3 +1,5 @@
 beautifulsoup4
 flask
-html2text
+pytube
+PyDictionary
+python-datamuse

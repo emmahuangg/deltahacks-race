@@ -1,7 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-from flask import Flask
-from html2text import html2text
+from flask import Flask, jsonify
+from pytube import YouTube, Search
+from simplify import simplify
 
 app = Flask(__name__)
 
@@ -23,7 +24,7 @@ def get_article(term: str):
 
     # content = soup.prettify()
     content = content.prettify()
-    return content
+    return jsonify({"result": content})
 
 
 # only return the most important summary text (html)
@@ -47,8 +48,7 @@ def get_first_paragraph_html(term: str):
     for i in first_paragraph:
         response += str(i)
     response += "</div>"
-    print(response)
-    return response
+    return jsonify({"result": response})
 
 
 # only return the most important summary text (plain text)
@@ -68,7 +68,6 @@ def get_first_paragraph_text(term: str):
 
     response = ""
     is_addable = True
-    print(first_paragraph)
     for i in first_paragraph:
         i = str(i)
         for char in i:
@@ -79,7 +78,7 @@ def get_first_paragraph_text(term: str):
             elif is_addable:
                 response += char
 
-    return response
+    return jsonify({"result": response})
 
 
 # return the image url of a term
@@ -95,7 +94,27 @@ def get_image(term: str):
 
     # get the first image
     image = content.find("img")
-    return "https:"+image["src"]
+
+    return jsonify({"result": "https:"+image["src"]})
+
+
+# return Youtube video of a term
+@app.get("/video/<term>")
+def get_video(term: str):
+    s = Search(term).results
+    response = []
+    for i in range(min(6,len(s))):
+        response.append(s[i].video_id)
+    return jsonify({"result": response})
+
+
+
+
+# return simplified version of a paragraph
+@app.get("/simplify/<text>")
+def get_simplified(text: str):
+    s = simplify(text)
+    return jsonify({"result": s})
 
 
 
@@ -103,3 +122,4 @@ def get_image(term: str):
 
 if __name__ == "__main__":
     app.run(debug=True, port=8001)
+
