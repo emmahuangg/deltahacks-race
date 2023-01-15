@@ -4,6 +4,8 @@ import { useState, useRef } from "react";
 import { TypeAnimation } from 'react-type-animation';
 
 export const Explore = () => {
+  const [string, setString] = useState("");
+
   const [word, setWord] = useState("");
   const searchBar = useRef();
   const [searchTerm, setSearchTerm] = useState("");
@@ -56,6 +58,26 @@ export const Explore = () => {
     window.scrollTo(0, 0)
   }, [word]);
 
+  useEffect(() => {
+    if (searchResult) {
+      const jsonData = searchResult;
+      fetch("/summarized/" + jsonData, {
+        method: "GET",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setString(data.result.summary_text);
+        }).catch(error => {
+          console.log('Too many requests per minute for the summarization API. Please try again later.');
+        });
+    }
+  }, [searchResult])
+
   return (
     <>
     <div className="wrapper">
@@ -106,6 +128,9 @@ export const Explore = () => {
                   ></iframe>
                 ))}
             </div>
+            {string && <h1 className="py-4 font-extrabold text-4xl text-orange mt-8 px-20 ">What did we learn?</h1>}
+            {string && <p className="bg-orange py-6 rounded-full font-extrabold text-xl text-white px-20 ml-20 mr-20 ">{string}</p>}
+            {string && <div className="h-16" />}
           </div>
 
           <div className="rounded-full w-screen mx-20">
@@ -169,7 +194,7 @@ export const Explore = () => {
                 <button onClick={() => setWord('Representational state transfer')} className="rounded-full font-bold col-span-2 px-3 py-2 bg-orange text-white mt-4 hover:bg-red-400 transition-all duration-150 drop-shadow-lg ">Learn more</button>
               </div>
             </div>
-      </div>
+          </div>
     </div>
     </div>
     </>
