@@ -67,7 +67,6 @@ def get_first_paragraph_text(term: str):
 
     response = ""
     is_addable = True
-    print(first_paragraph)
     for i in first_paragraph:
         i = str(i)
         for char in i:
@@ -105,7 +104,6 @@ def get_video(term: str):
     response = []
     for i in range(min(6,len(s))):
         response.append(s[i].video_id)
-    print(response)
     return jsonify({"result": response})
 
 

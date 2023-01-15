@@ -50,9 +50,8 @@ function Search() {
   };
 
   return (
-    <>
-      <h1>Welp! CSS DNE on this page</h1>
-      <input type="text" ref={searchBar} />
+    <div className = "flex justify-center">
+      <input type="text" ref={searchBar} className="rounded-full h-20 w-screen"/>
       <button type="button" onClick={getResult}>
         LEARN
       </button>
@@ -72,7 +71,7 @@ function Search() {
             ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
