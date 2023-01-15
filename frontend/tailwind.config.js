@@ -14,6 +14,7 @@ module.exports = {
         'yellow': '#FCDC15'
       }, 
       spacing: {
+        '600': '55rem',
         '800': '80rem',
       }
     },

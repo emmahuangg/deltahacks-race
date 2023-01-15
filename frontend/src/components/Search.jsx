@@ -80,7 +80,7 @@ function Search (props) {
                 width="400"
                 height="300"
                 src={"https://www.youtube.com/embed/" + videoId}
-                className="mb-8 mt-0"
+                className="mb-8 mt-0 rounded-3xl"
                 data-aos="fade-down"
               ></iframe>
             ))}
