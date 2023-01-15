@@ -7,6 +7,10 @@ import { BsStack } from 'react-icons/bs'
 import reacticon from '../resources/reacticon.png'
 import flaskicon from '../resources/flaskicon.png'
 import pythonicon from '../resources/pythonicon.png'
+import cyanMonkey from '../resources/cyanMonkey.PNG'
+import pinkMonkey from '../resources/pinkMonkey.PNG'
+import orangeMonkey from '../resources/orangeMonkey.PNG'
+import yellowMonkey from '../resources/yellowMonkey.PNG'
 
 
 
@@ -42,10 +46,10 @@ export const Info = (props) => {
                 <h1 className='text-right mr-32 font-extrabold text-6xl text-pink'>Team RACE</h1>
                 <h2 className='text-right mr-32 mt-2 font-extrabold text-6xl text-black'>DeltaHacks 9</h2>
                 <div className='grid grid-cols-4 pl-80 mt-16'>
-                    <span><center><img src="https://about.canva.com/wp-content/uploads/sites/8/2019/03/pink.png" className='rounded-full w-40 h-40 mb-3' /><p className='text-xl font-regular'>Richard</p><p className='text-xl font-extrabold'>Shuai</p></center></span>
-                    <span><center><img src="https://about.canva.com/wp-content/uploads/sites/8/2019/03/pink.png" className='rounded-full w-40 h-40 mb-3' /><p className='text-xl font-regular'>Carolyn</p><p className='text-xl font-extrabold'>Zhang</p></center></span>
-                    <span><center><img src="https://about.canva.com/wp-content/uploads/sites/8/2019/03/pink.png" className='rounded-full w-40 h-40 mb-3' /><p className='text-xl font-regular'>Emma</p><p className='text-xl font-extrabold'>Huang</p></center></span>
-                    <span><center><img src="https://about.canva.com/wp-content/uploads/sites/8/2019/03/pink.png" className='rounded-full w-40 h-40 mb-3' /><p className='text-xl font-regular'>Angela</p><p className='text-xl font-extrabold'>Xu</p></center></span>
+                    <span><center><img src={orangeMonkey} className='rounded-full w-96 h-auto mb-0' /><p className='text-xl font-regular'>Richard</p><p className='text-xl font-extrabold'>Shuai</p></center></span>
+                    <span><center><img src={cyanMonkey} className='rounded-full w-96 h-auto mb-0' /><p className='text-xl font-regular'>Carolyn</p><p className='text-xl font-extrabold'>Zhang</p></center></span>
+                    <span><center><img src={yellowMonkey} className='rounded-full w-96 h-auto mb-0' /><p className='text-xl font-regular'>Emma</p><p className='text-xl font-extrabold'>Huang</p></center></span>
+                    <span><center><img src={pinkMonkey} className='rounded-full w-96 h-auto mb-0' /><p className='text-xl font-regular'>Angela</p><p className='text-xl font-extrabold'>Xu</p></center></span>
 
                 </div>
             </div>
