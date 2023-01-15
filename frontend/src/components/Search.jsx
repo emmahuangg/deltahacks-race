@@ -61,7 +61,7 @@ function Search (props) {
     <div className="h-auto">
       <div className="flex justify-center mt-12 px-20 h-auto">
         <TypingAnim />
-        <input type="text" ref={searchBar} className="text-2xl rounded-full h-16 w-screen text-black p-8 focus:outline-0"></input>
+        <input type="text" ref={searchBar} className="text-2xl rounded-full h-16 w-screen text-black py-8 px-12 focus:outline-0"></input>
         <button type="button" onClick={getResult} className="text-white h-16 font-bold text-3xl px-8 bg-orange rounded-full mx-4  outline-8 drop-shadow-lg hover:bg-red-400 transition-all duration-300 ">
           LEARN
         </button>

@@ -10,7 +10,7 @@ import pythonicon from '../resources/pythonicon.png'
 import cyanMonkey from '../resources/cyanMonkey.PNG'
 import pinkMonkey from '../resources/pinkMonkey.PNG'
 import orangeMonkey from '../resources/orangeMonkey.PNG'
-import yellowMonkey from '../resources/yellowMonkey.PNG'
+import purpleMonkey from '../resources/purpleMonkey.PNG'
 
 
 
@@ -43,13 +43,13 @@ export const Info = (props) => {
                     <img src={pythonicon} className='w-28 mx-8 mt-12 ' data-aos="fade-left" />
                     <img src={flaskicon} className='w-36 mx-8 mt-12 ' data-aos="fade-left" />
                 </div>
-                <h1 className='text-right mr-32 font-extrabold text-6xl text-pink' data-aos="slide-down">Team RACE</h1>
-                <h2 className='text-right mr-32 mt-2 font-extrabold text-6xl text-black' data-aos="slide-down">DeltaHacks 9</h2>
+                <h1 className='text-right mr-32 font-extrabold text-6xl text-pink' data-aos="zoom-in-down">Team RACE</h1>
+                <h2 className='text-right mr-32 mt-2 font-extrabold text-6xl text-black' data-aos="fade-left">DeltaHacks 9</h2>
                 <div className='grid grid-cols-4 pl-80 mt-16'>
-                    <span data-aos="slide-left"><center><img src={orangeMonkey} className='rounded-full w-96 h-auto mb-0' /><p className='text-xl font-regular'>Richard</p><p className='text-xl font-extrabold'>Shuai</p></center></span>
-                    <span data-aos="slide-up"><center><img src={cyanMonkey} className='rounded-full w-96 h-auto mb-0' /><p className='text-xl font-regular'>Carolyn</p><p className='text-xl font-extrabold'>Zhang</p></center></span>
-                    <span data-aos="slide-right"><center><img src={yellowMonkey} className='rounded-full w-96 h-auto mb-0' /><p className='text-xl font-regular'>Emma</p><p className='text-xl font-extrabold'>Huang</p></center></span>
-                    <span data-aos="slide-down"><center><img src={pinkMonkey} className='rounded-full w-96 h-auto mb-0' /><p className='text-xl font-regular'>Angela</p><p className='text-xl font-extrabold'>Xu</p></center></span>
+                    <span data-aos="zoom-in-left" data-aos-anchor-placement="bottom-bottom"><center><img src={orangeMonkey} className='rounded-full w-40 h-auto mb-0' /><p className='text-xl font-regular'>Richard</p><p className='text-xl font-extrabold'>Shuai</p></center></span>
+                    <span data-aos="zoom-in-up" data-aos-anchor-placement="bottom-bottom"><center><img src={cyanMonkey} className='rounded-full w-40 h-auto mb-0' /><p className='text-xl font-regular'>Carolyn</p><p className='text-xl font-extrabold'>Zhang</p></center></span>
+                    <span data-aos="zoom-in-right" data-aos-anchor-placement="bottom-bottom"><center><img src={purpleMonkey} className='rounded-full w-40 h-auto mb-0' /><p className='text-xl font-regular'>Emma</p><p className='text-xl font-extrabold'>Huang</p></center></span>
+                    <span data-aos="zoom-in-down" data-aos-anchor-placement="bottom-bottom"><center><img src={pinkMonkey} className='rounded-full w-40 h-auto mb-0' /><p className='text-xl font-regular'>Angela</p><p className='text-xl font-extrabold'>Xu</p></center></span>
                 </div>
             </div>
         </div>
