@@ -9,7 +9,7 @@ export const TypingAnim = (props) => {
     setStyle("hidden");
   }
 
-  return (<div onClick={disappear} className={`text-2xl absolute pl-32 rounded-full py-6 w-screen h-20 w-screentext-black focus:outline-0 ` + style}>
+  return (<div onClick={disappear} className={`text-2xl absolute pl-32 rounded-full py-3 w-screen h-20 w-screentext-black focus:outline-0 ` + style}>
 
     <TypeAnimation
       sequence={[
