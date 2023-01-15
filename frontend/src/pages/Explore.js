@@ -3,6 +3,8 @@ import Navigation from "../components/Navigation";
 
 export const Explore = () => {
   return (
+    <>
+    <div className="wrapper">
     <div className="w-screen h-auto pb-20">
       <div className="w-screen h-600 bg-bottom bg-[url('../public/abstract.jpg')] bg-cover">
         <Navigation />
@@ -65,6 +67,8 @@ export const Explore = () => {
         </div>
       </div>
     </div>
+    </div>
+    </>
   );
 };
 

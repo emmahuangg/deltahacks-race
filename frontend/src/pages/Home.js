@@ -12,6 +12,8 @@ export const Home = () => {
     setSearched(true);
   }
   return (
+    <>
+    <div className='wrapper'>
     <div className="w-screen h-auto pb-20">
       <div className="w-screen h-600 bg-bottom bg-[url('../public/abstract.jpg')] bg-cover">
         <Navigation />
@@ -24,6 +26,8 @@ export const Home = () => {
       </div>
       <Info searched={searched} />
     </div>
+    </div>
+    </>
 
   )
 }
