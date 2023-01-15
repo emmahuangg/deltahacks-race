@@ -14,13 +14,13 @@ export const TypingAnim = (props) => {
     <TypeAnimation
       sequence={[
         'Agriculture', // Types 'One'
-        1000, // Waits 1s
+        2000, // Waits 1s
         'Calculus', // Deletes 'One' and types 'Two'
-        1000, // Waits 2s
+        2000, // Waits 2s
         'University of Waterloo',
-        1000,
+        2000,
         'University',
-        1000
+        2000
       ]}
       wrapper="div"
       cursor={true}

@@ -1,5 +1,6 @@
 import React from "react";
 import Navigation from "../components/Navigation";
+import { TypeAnimation } from 'react-type-animation';
 
 export const Explore = () => {
   return (
@@ -12,6 +13,25 @@ export const Explore = () => {
           <h1 className="p-0 text-8xl font-extrabold inline-block text-black">Wiki</h1>
           <h1 className="p-0 text-8xl font-extrabold inline-block text-blue">Learn</h1>
         </span>
+        <div className="text-2xl absolute pl-32 rounded-full py-6 w-screen h-20 w-screentext-black focus:outline-0">
+
+          <TypeAnimation
+            sequence={[
+              'Agriculture', // Types 'One'
+              2000, // Waits 1s
+              'Calculus', // Deletes 'One' and types 'Two'
+              2000, // Waits 2s
+              'University of Waterloo',
+              2000,
+              'University',
+              2000
+            ]}
+            wrapper="div"
+            cursor={true}
+            repeat={Infinity}
+            style={{ fontSize: '1.2em', color: "#0EACE3", fontWeight: "bold" }}
+          />
+        </div>
         </div>
 
       <div class="explore-card-container">
