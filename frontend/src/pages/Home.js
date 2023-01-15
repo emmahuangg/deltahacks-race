@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Navigation from '../components/Navigation';
 import Search from '../components/Search';
 import Info from '../components/Info';
+import Summarize from '../components/Summarize';
 
 import "../index.css";
 

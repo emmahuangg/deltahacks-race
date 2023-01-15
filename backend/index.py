@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 from flask import Flask, jsonify
 from pytube import YouTube, Search
+import nlpcloud
+
 
 app = Flask(__name__)
 
@@ -106,6 +108,14 @@ def get_video(term: str):
         response.append(s[i].video_id)
     return jsonify({"result": response})
 
+
+# return simplified
+@app.get("/summarized/<stringtext>")
+def get_summarized(stringtext: str):
+    client = nlpcloud.Client(
+        "bart-large-cnn", "b064200011562b9e156c5188f5f9faee9793e7c1")
+    result = client.summarization(stringtext)
+    return jsonify({"result": result})
 
 
 
