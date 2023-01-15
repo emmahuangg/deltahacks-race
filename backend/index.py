@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from flask import Flask, jsonify
 from pytube import YouTube, Search
 import nlpcloud
-
+from simplify import simplify
 
 app = Flask(__name__)
 
@@ -116,6 +116,15 @@ def get_summarized(stringtext: str):
         "bart-large-cnn", "b064200011562b9e156c5188f5f9faee9793e7c1")
     result = client.summarization(stringtext)
     return jsonify({"result": result})
+
+
+
+# return simplified version of a paragraph
+@app.get("/simplify/<text>")
+def get_simplified(text: str):
+    s = simplify(text)
+    return jsonify({"result": s})
+
 
 
 

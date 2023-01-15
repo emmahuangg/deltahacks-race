@@ -1,0 +1,15 @@
+.need-definition {
+  font-weight: bold;
+  color: magenta;
+}
+.need-definition:hover {
+  cursor: pointer;
+  color: purple;
+}
+.need-definition[title]:hover {
+  display: none;
+}
+.definition {
+  position: fixed;
+  background-color: yellow;
+}
