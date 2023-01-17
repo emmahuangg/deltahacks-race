@@ -2,7 +2,7 @@
 
 ## ✨ [Demo and Prototypes](https://drive.google.com/drive/folders/1oxSmm5-ZkyftKvALJRz-GuTVrbofVyom)
 
-<img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/345/699/datas/gallery.jpg" alt="drawing" width="400" />
+<img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/345/699/datas/original.png" alt="drawing" width="400" />
 
 
 ## ✨ Inspiration
@@ -13,7 +13,7 @@ While this is an arduous task, we have a solution.
 Introducing WikiLearn! WikiLearn is not simply an encyclopedia: it contains the most vast range of topics, but provides the most easy and accessible learning experience for everyone. We deliver the knowledge Wikipedia provides, but in a straight-forward, concise, and engaging manner. WikiLearn is truly the innovative solution for an accessible, interesting, and exciting learning experience; it is truly a game changer. 
 
 
-<img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/345/700/datas/gallery.jpg" alt="drawing" width="400" />
+<img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/345/700/datas/original.png" alt="drawing" width="400" />
 
 
 ## ✨ What it does
@@ -36,7 +36,7 @@ And yes, as much as our project helps others learn, we also learned lots of new 
 “WikiLearn, the result of cutting-edge technology, a group of Waterloo students, and a bunch of APIs.”
 
 
-<img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/346/384/datas/gallery.jpg" alt="drawing" width="400" />
+<img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/346/384/datas/original.png" alt="drawing" width="400" />
 
 
 ## ✨ Challenges we ran into
@@ -56,5 +56,5 @@ We learnt to use and incorporate multiple APIs together, developed a formula to 
 WikiLearn’s next steps include implementing AI-generated cartoon storylines into Wikipedia content to further increase the accessibility of knowledge for young learners. In order to target our audience of young students, our goal is to gamify education and provide incentives to learn, while simplifying daunting subjects. 
 
 
-<img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/345/698/datas/gallery.jpg" alt="drawing" width="400" />
+<img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/345/698/datas/original.png" alt="drawing" width="400" />
 
