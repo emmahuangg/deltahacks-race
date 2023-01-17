@@ -1,6 +1,6 @@
 # WikiLearn
 
-## ✨ [Demo and Prototypes](https://drive.google.com/drive/folders/1oxSmm5-ZkyftKvALJRz-GuTVrbofVyom)
+## ✨ [Demo and Prototypes (Clickable)](https://drive.google.com/drive/folders/1oxSmm5-ZkyftKvALJRz-GuTVrbofVyom)
 
 <img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/345/699/datas/original.png" alt="drawing" width="400" />
 
